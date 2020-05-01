@@ -1,0 +1,533 @@
+<html>
+	<head>
+		<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+		<style>
+			body {
+				margin: 0;
+				direction: rtl;
+			}
+			.backGround {
+				background-attachment: fixed;
+				background-position: center;
+				background-size: cover;
+				min-height: 900px;
+				opacity: .8;
+			}
+			.sideMenu {
+				position: fixed;
+				max-width: 0;
+				background-color: #282E34;
+				left: 0;
+				height: 100%;
+				z-index: 1;
+				opacity: 0.9
+			}
+			.fsMenu {
+				width: 100%;
+				height: 100%;
+				opacity: 0.7;
+				background-color: black;
+				display: none;
+				overflow: visible;
+				position: fixed;
+				z-index: 3;
+			}
+			.menuContainer {
+				margin-right: auto;
+				margin-left: auto;
+				width: fit-content;
+				text-align: center;
+				font-family: 'baloo bhaina 2';
+				font-size: 40;
+				color: white;
+				opacity: 1;
+			}
+			.paraGraph {
+				width: 100%;
+				background-color: gainsboro;	
+				text-align: center;
+			}
+			.navBar {
+				z-index: +2;
+				width: 100%;
+				background-color: #282E34;
+				height: 45px;
+				position: fixed;
+				opacity: .95
+			}
+			.dropDown {
+				cursor: pointer;
+				color: white;
+			}
+			.navButt {
+				color: white;
+				padding: 6 1;
+				cursor: pointer;
+			}
+			.dropDown:hover {
+				background-color: darkorange;
+			}
+			.dropDown-Content {
+				display : none;
+			} 
+			.show {
+				display : block ;
+			}
+			.active {
+				color : red ;
+			}
+			.h1 {
+				color: white;
+				font-family: 'Baloo Bhaina 2', cursive;
+				margin-left: auto;
+				margin-right: auto;
+				position: absolute;
+				left:48vw;
+				top: 7;
+			}
+			.fsMenu h1{
+				color: white;
+				padding-right: 20;
+				padding-top: 30;
+			}
+			.menuList {
+				list-style-type: none;
+			}
+			.menuList li {
+				cursor: pointer;
+			}
+			.menuList li:hover {
+				color: red;
+			}
+			.nL {
+				max-height: 0;
+				overflow: hidden;
+				list-style-type: none;
+				padding-inline-start:0;
+			}
+			.oButt {
+				position: fixed;
+				left: 0;
+				top:300;
+				color: black;
+				z-index: 1;
+				cursor: pointer;
+			}
+			.sideMenuano {
+				animation: smo 1s ease-out;
+			}
+			.sideButtano {
+				animation: sbo 1s ease-out;
+				left:30vw;
+				transform: rotate(180deg);
+			}
+			.sideMenuanc{
+				animation: smc 1s ease-in;
+			}
+			.sideButtanc{
+				animation: sbc 1s ease-in;
+				left:0;
+				transform: rotate(360deg);
+			}
+			.listOpen {
+				animation: lo 0.5s ease-out;
+			}
+			.listClose {
+				animation: lc 0.5s ease-in;
+			}
+			.modal {
+				display: non;
+				position: fixed;
+				z-index: 3;
+				text-align: center;
+				height: 100%;
+				width:100%;
+				background-color: black;
+				background-color: rgba(0,0,0,0.5);
+				display: none;
+			}
+			.modalContent {
+				margin-right: auto;
+				margin-left: auto;
+				margin-top: 200;
+				background-color: white;
+				width: 500;
+				height: 180;
+				text-align: center;
+			}
+			#modalHeader {
+				background-color: #282E34;
+				min-height: 35px;
+				width: 100%;
+				text-align: right;
+			}
+			#modalFooter{
+				min-height: 40px;
+				background-color: #282E34;
+				margin-top: 33;
+				color: white;
+				font-family: 'baloo bhaina 2';
+				text-align: right;
+				padding-top: 10;
+				padding-right: 10;
+			}
+			#cB1 {
+				cursor: pointer;
+				padding-right: 10;
+				width: fit-content;
+				display: inline;
+				color: white;
+			}
+			#navList {
+				list-style-type: none;
+				color: white;
+				padding-top: 25;
+				padding-left: 30;
+				font-family: 'baloo bhaina 2';
+				font-size: 24;
+			}
+			#navList li {
+				cursor: pointer;
+			}
+			#Butt1 {
+				position: fixed;
+				left: 130;
+				padding: 6 0 0 5;
+				font-family: 'baloo bhaina 2';
+			}
+			#butt2 {
+				float: left;
+				font-size: 20;
+				padding: 9 3 0 10;
+			}
+			#butt3 {
+				position: fixed;
+				left: 190;
+				padding: 6 0 0 5;
+				font-family: 'baloo bhaina 2';
+			}
+			#navList li:hover {color: gold;}
+			#dd1:hover ~ #l1 {
+				display : block ;
+			}
+			#l1 li:hover {
+				background-color : gainsboro ;
+				color : black ;
+			}
+			.navButt:hover {
+				color: aqua ;
+			}
+			#dd1{
+				position : relative ;
+				float : left ;
+				padding : 6 15 ;
+				font-family : 'Baloo Bhaina 2', cursive ;
+			}
+			#l1 {
+				z-index : 2 ;
+				list-style-type : none ;
+				background-color : black ;
+				position : relative ;
+				height : 130 ;
+				width : 100 ;
+				float : left ;
+				color : white ;
+				animation-name: s;
+				animation-duration: 1s;
+				margin-block-start : 25px ;
+				margin-block-end : 0 ;
+				padding-inline-start : 0 ;
+			}
+			#l1 li {
+				font-family: 'Baloo Bhaina 2';
+				text-align: left;
+				padding: 6 15;
+				cursor: pointer;
+				margin-block-start: 0;
+				margin-block-end: 0;
+			}
+			#b1 {
+				background-image: url(img_parallax.jpg)
+			}
+			#b2 {
+				background-image: url(img_parallax2.jpg)
+			}
+			#b3{
+				background-image: url(img_parallax3.jpg)
+			}
+			#p1 p{
+				margin-block-start:0;
+				margin-block-end:0;
+				padding: 30;
+				border: dotted white;
+				font-weight: 1000;
+				line-height: 1.8;
+			}
+			#p2 {
+				background-color: gray;
+				width:200;
+				position: absolute;
+				left: 43.5vw;
+				top:1500;
+				text-align: center;
+				font-family: 'Baloo Bhaina 2', cursive;
+				display: inline-block;
+				direction: ltr;
+			}
+			#modalHeading {
+				float: left;
+				display: inline;
+				color: white;
+				font-family: 'baloo bhaina 2';
+				margin: 0 10;
+				font-size: 20
+			}
+			#p2 h1{
+				display: inline-block;
+				margin-block-start:0;
+				margin-block-end:0;
+				color: white;
+			}
+			#p3 {
+				background-color: #282E34;
+				color: white;
+				font-family: 'Almarai', sans-serif;
+			}
+			#p3 p {
+				margin-block-start:0;
+				margin-block-end:0;
+				padding: 50 80;
+				font-weight: 900;
+				line-height: 2.5;
+			}
+			#p4 {
+				font-family: 'Almarai';
+				line-height: 1.45;
+				font-weight: 800;
+				padding: 3 15;
+			}
+			#h2 {
+				text-align: center;
+				
+			}
+			@keyframes s {
+				0% { opacity : 0 ; }
+				100% { opacity : 1 ; }
+			}
+			@keyframes smo {
+				0%{max-width: 0 ;}
+				100%{max-width: 30vw ;}
+			}
+			@keyframes smc {
+				0%{max-width: 30vw ;}
+				100%{max-width: 0 ;}
+			}
+			@keyframes lo {
+				0%{max-height: 0;}
+				100%{max-height:100;}
+			}
+			@keyframes lc {
+				0%{max-height: 100;}
+				100%{max-height: 0;}
+			}
+			@keyframes sbo {
+				0% {
+					left:0;
+					transform: rotate(0deg);
+				}
+				100%{
+					left:30vw;
+					transform: rotate(180deg);
+				}
+			}
+			@keyframes sbc {
+				0% {
+					left:30vw;
+					transform: rotate(180deg);
+				}
+				100%{
+					left:0;
+					transform: rotate(0deg);
+				}
+			}
+		</style>
+		<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap" rel="stylesheet">
+		<title>Saleh's Demo Page</title>
+	</head>
+	<body>
+		<div class="modal" id="m1">
+			<div class="modalContent" id="c1">
+				<div id="modalHeader"><h1 id="cB1" onclick="modalClose()">&times;</h1><h6 id="modalHeading">modal header</h6></div>
+				<p id="p4">
+				لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلک
+				</p>
+				<div id="modalFooter">modal footer</div>
+			</div>
+		</div>
+		<div class="sideMenu" id="sm">
+			<ul id="navList">
+				<li onclick="toggles('1')">subj 1</li>
+				<ul class="nL" id="nL1">
+					<li>link1</li>
+					<li>link1</li>
+				</ul>
+				<li onclick="toggles('2')">subj 2</li>
+				<ul class="nL" id="nL2">
+					<li>link1</li>
+					<li>link1</li>
+
+				</ul>
+				<li onclick="toggles('3')">subj 3</li>
+				<ul class="nL" id="nL3">
+					<li>link1</li>
+					<li>link1</li>
+				</ul>
+			</ul>
+		</div>
+		<div class="fsMenu" id="fusMenu">
+			<h1 onclick="cfsMenu()" style="cursor: pointer">&times;</h1>
+			<h1 style="text-align: center;font-family: 'baloo bhaina 2';">full screen menu</h1>
+			<div class="menuContainer">
+				<ul class="menuList">
+				<li>link 1</li>
+				<li>link 2</li>
+				<li>link 3</li>
+				</ul>
+			</div>
+		</div>
+		
+		<header class="navBar">
+			<i class="fas fa-home navButt" id="butt2" onclick="ofsMenu()"></i>
+			<span class="dropDown" id="dd1">Hover me</span>
+			<ul class="dropDown-Content" id="l1">
+				<li>link 1</li>
+				<li>link 2</li>
+				<li>link 3</li>
+				</ul>
+			<span class="navButt" id="butt1" onclick="modalOpen()">modal</span>
+			<span class="navButt" id="butt3">link</span>
+			<span class="h1">My Demo Page</span>
+		</header>
+		<h1 class="oButt" id="oBut" onclick="sMo()">&#10094;</h1>
+		<div id="b1" class="backGround"></div>
+			<div id="p1" class="paraGraph">
+				<p style="font-family: 'Almarai';height:fit-content;">
+					لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر متن باشد. معمولا طراحان گرافیک برای صفحه‌آرایی، نخست از متن‌های آزمایشی و بی‌معنی استفاده می‌کنند تا صرفا به مشتری یا صاحب کار خود نشان دهند که صفحه طراحی یا صفحه بندی شده بعد از اینکه متن در آن قرار گیرد چگونه به نظر می‌رسد و قلم‌ها و اندازه‌بندی‌ها چگونه در نظر گرفته شده‌است. از آنجایی که طراحان عموما نویسنده متن نیستند و وظیفه رعایت حق تکثیر متون را ندارند و در همان حال کار آنها به نوعی وابسته به متن می‌باشد آنها با استفاده از محتویات ساختگی، صفحه گرافیکی خود را صفحه‌آرایی می‌کنند تا مرحله طراحی و صفحه‌بندی را به پایان برند.
+				</p>
+			</div>
+		<div id="b2" class="backGround">
+			<div id="p2">
+				<h1 id="h2">COOL!</h1>
+			</div>
+			</div>
+		<div class="paraGraph" id="p3">
+			<p>
+				لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده ازلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده ازلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده ازلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
+			لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
+		
+			</p>
+			</div>
+		<div class="backGround" id="b3">
+		</div>
+	</body>
+	<script>
+		var modal = document.getElementById('m1')
+		var modalCont = document.getElementById('c1')
+		function modalOpen() {
+			modal.style.display = 'block'
+			window.onclick = function(event){
+				if(event.target == modal && event.target != modalCont)
+					modalClose()
+		}
+		}
+			function modalClose(){
+				modal.style.display = "none"
+			}
+				var listm = document.getElementById('fusMenu')
+		document.getElementById('l1').onmouseover = function(){
+			document.getElementById('l1').classList.add('show')
+			document.getElementById('dd1').classList.add('active')
+		}
+		document.getElementById('l1').onmouseleave = function(){
+			document.getElementById('l1').classList.remove('show')
+			document.getElementById('dd1').classList.remove('active')
+		}
+		function ofsMenu (){
+			listm.classList.add('show')
+			fs = true 
+			window.onclick = function(event){
+			if(event.target == listm){
+				cfsMenu()
+			}
+		}
+		}
+		function cfsMenu (){
+			listm.classList.remove('show')
+		}
+		var sM = false
+		function sMo () {
+			var sideMenu = document.getElementById('sm')
+			var oB = document.getElementById('oBut')
+			if(sM == false){
+				sideMenu.style.maxWidth = "30vw"
+				sideMenu.classList.remove('sideMenuanc')
+				oB.classList.remove('sideButtanc')
+				sideMenu.classList.add('sideMenuano')
+				oB.classList.add('sideButtano')
+				sM = true
+			}
+			else {
+				sideMenu.style.maxWidth = "0vw"
+				sideMenu.classList.remove('sideMenuano')
+				oB.classList.remove('sideButtano')
+				sideMenu.classList.add('sideMenuanc')
+				oB.classList.add('sideButtanc')
+				sM = false
+			}
+		}
+		var sub1 = false ,sub2 = false ,sub3 = false
+		function toggles (a) {
+			var listNum = document.getElementById('nL'+a)
+			if(a == 1 && sub1 == false){
+				listNum.style.maxHeight = 100
+				listNum.classList.add('listOpen')
+				listNum.classList.remove('listClose')
+				sub1 = true
+				return
+			}
+			if(a == 1 && sub1 == true){
+				listNum.style.maxHeight = 0
+				listNum.classList.remove('listOpen')
+				listNum.classList.add('listClose')
+				sub1 = false
+			}
+			if(a == 2 && sub2 == false){
+				listNum.style.maxHeight = 100
+				listNum.classList.add('listOpen')
+				listNum.classList.remove('listClose')
+				sub2 = true
+				return
+			}
+			if(a == 2 && sub2 == true){
+				listNum.style.maxHeight = 0
+				listNum.classList.remove('listOpen')
+				listNum.classList.add('listClose')
+				sub2 = false
+			}
+			if(a == 3 && sub3 == false){
+				listNum.style.maxHeight = 100
+				listNum.classList.add('listOpen')
+				listNum.classList.remove('listClose')
+				sub3 = true
+				return
+			}
+			if(a == 3 && sub3 == true){
+				listNum.style.maxHeight = 0
+				listNum.classList.remove('listOpen')
+				listNum.classList.add('listClose')
+				sub3 = false
+			}
+		}
+	</script>
+</html>
