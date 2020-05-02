@@ -13,6 +13,27 @@
 				min-height: 900px;
 				opacity: .8;
 			}
+			.inp {
+				float: left;
+				margin-left: 50;
+				border: none;
+				padding: 10 0 10 0;
+			}
+			.modCont {
+				margin-top: 30;
+				background-color: white;
+				width:600;
+				margin-left: auto;
+				margin-right: auto;
+				z-index: 4;
+			}
+			.form {
+				font-family: 'baloo bhaina 2';
+			}
+			.lab {
+				float: left;
+				padding-left: 30;
+			}
 			.sideMenu {
 				position: fixed;
 				max-width: 0;
@@ -73,6 +94,14 @@
 			.show {
 				display : block ;
 			}
+			.submit {
+				background-color: #282e34;
+				border: black ;
+				padding: 10 10 10 10;
+				color: white;
+				cursor: pointer;
+				font-family: 'baloo bhaina 2';
+			}
 			.active {
 				color : red ;
 			}
@@ -132,11 +161,26 @@
 			.listOpen {
 				animation: lo 0.5s ease-out;
 			}
+			.modHead {
+				height: 70;
+				background-color: #282E34
+			}
 			.listClose {
 				animation: lc 0.5s ease-in;
 			}
+			.slideShow {
+				width: 50%;
+				margin-left: auto;
+				margin-right: auto;
+				height: 300px;
+			}
+			.slides {
+				width: 100%;
+				height: 100%;
+				background-position: center;
+				display: none;
+			}
 			.modal {
-				display: non;
 				position: fixed;
 				z-index: 3;
 				text-align: center;
@@ -145,6 +189,7 @@
 				background-color: black;
 				background-color: rgba(0,0,0,0.5);
 				display: none;
+				overflow: scroll
 			}
 			.modalContent {
 				margin-right: auto;
@@ -154,6 +199,15 @@
 				width: 500;
 				height: 180;
 				text-align: center;
+			}
+			#ad1 {
+				background-image: url(11704731-9533-b__127029354.jpg)
+			}
+			#ad2 {
+				background-image: url(download.jpg)
+			}
+			#ad3 {
+				background-image: url(tabligh-97-1.png)
 			}
 			#modalHeader {
 				background-color: #282E34;
@@ -255,6 +309,9 @@
 			#b3{
 				background-image: url(img_parallax3.jpg)
 			}
+			#c2 h1{
+				transform: translate(-25px,-5px);
+			}
 			#p1 p{
 				margin-block-start:0;
 				margin-block-end:0;
@@ -263,17 +320,6 @@
 				font-weight: 1000;
 				line-height: 1.8;
 			}
-			#p2 {
-				background-color: gray;
-				width:200;
-				position: absolute;
-				left: 43.5vw;
-				top:1500;
-				text-align: center;
-				font-family: 'Baloo Bhaina 2', cursive;
-				display: inline-block;
-				direction: ltr;
-			}
 			#modalHeading {
 				float: left;
 				display: inline;
@@ -281,12 +327,6 @@
 				font-family: 'baloo bhaina 2';
 				margin: 0 10;
 				font-size: 20
-			}
-			#p2 h1{
-				display: inline-block;
-				margin-block-start:0;
-				margin-block-end:0;
-				color: white;
 			}
 			#p3 {
 				background-color: #282E34;
@@ -356,6 +396,43 @@
 		<title>Saleh's Demo Page</title>
 	</head>
 	<body>
+		<header class="navBar">
+			<i class="fas fa-home navButt" id="butt2" onclick="ofsMenu()"></i>
+			<span class="dropDown" id="dd1">Hover me</span>
+			<ul class="dropDown-Content" id="l1">
+				<li>link 1</li>
+				<li>link 2</li>
+				<li>link 3</li>
+				</ul>
+			<span class="navButt" id="butt1" onclick="modalOpen()">modal</span>
+			<span class="navButt" id="butt3" onclick="modalOpen2()">sign in</span>
+			<span class="h1">My Demo Page</span>
+		</header>
+		<div class="modal" id="m2">
+				<div class="modCont" id="c2">
+					<div class="modHead">
+						<h1 style="position: absolute;color: white;cursor: pointer" onclick="modalClose2()">&times;</h1>
+						</div>
+					<img src="img_avatar2.png" style="border-radius: 50%;height: 350;margin-top: 50">
+					<form style="direction: ltr" class="form">
+						<label class="lab">Username:</label>
+						<br>
+						<input type="text" placeholder="Enter your UserName . . ." class="inp">
+						<br>
+						<br>
+						<label class="lab">Password:</label>
+						<br>
+						<input type="password" placeholder="Enter Your PassWord . . ." class="inp">
+						<br>
+						<br>
+						<input type="checkbox" style="float: left;margin-left: 30">
+						<label style="float: left;transform: translateY(-6.5px)">Remember me</label>
+						<br>
+						<input type="button" value="submit" class="submit">
+						<br>
+						</form>
+					</div>
+			</div>
 		<div class="modal" id="m1">
 			<div class="modalContent" id="c1">
 				<div id="modalHeader"><h1 id="cB1" onclick="modalClose()">&times;</h1><h6 id="modalHeading">modal header</h6></div>
@@ -396,31 +473,14 @@
 				</ul>
 			</div>
 		</div>
-		
-		<header class="navBar">
-			<i class="fas fa-home navButt" id="butt2" onclick="ofsMenu()"></i>
-			<span class="dropDown" id="dd1">Hover me</span>
-			<ul class="dropDown-Content" id="l1">
-				<li>link 1</li>
-				<li>link 2</li>
-				<li>link 3</li>
-				</ul>
-			<span class="navButt" id="butt1" onclick="modalOpen()">modal</span>
-			<span class="navButt" id="butt3">link</span>
-			<span class="h1">My Demo Page</span>
-		</header>
 		<h1 class="oButt" id="oBut" onclick="sMo()">&#10094;</h1>
 		<div id="b1" class="backGround"></div>
-			<div id="p1" class="paraGraph">
+		<div id="p1" class="paraGraph">
 				<p style="font-family: 'Almarai';height:fit-content;">
 					لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر متن باشد. معمولا طراحان گرافیک برای صفحه‌آرایی، نخست از متن‌های آزمایشی و بی‌معنی استفاده می‌کنند تا صرفا به مشتری یا صاحب کار خود نشان دهند که صفحه طراحی یا صفحه بندی شده بعد از اینکه متن در آن قرار گیرد چگونه به نظر می‌رسد و قلم‌ها و اندازه‌بندی‌ها چگونه در نظر گرفته شده‌است. از آنجایی که طراحان عموما نویسنده متن نیستند و وظیفه رعایت حق تکثیر متون را ندارند و در همان حال کار آنها به نوعی وابسته به متن می‌باشد آنها با استفاده از محتویات ساختگی، صفحه گرافیکی خود را صفحه‌آرایی می‌کنند تا مرحله طراحی و صفحه‌بندی را به پایان برند.
 				</p>
 			</div>
-		<div id="b2" class="backGround">
-			<div id="p2">
-				<h1 id="h2">COOL!</h1>
-			</div>
-			</div>
+		<div id="b2" class="backGround"></div>
 		<div class="paraGraph" id="p3">
 			<p>
 				لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده ازلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده ازلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده ازلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
@@ -429,31 +489,25 @@
 			</p>
 			</div>
 		<div class="backGround" id="b3">
+			<div class="slideShow">
+				<a class="slides" id="ad1"></a>
+				<a class="slides" id="ad2"></a>
+				<a class="slides" id="ad3"></a>
+			</div>
 		</div>
 	</body>
 	<script>
-		var modal = document.getElementById('m1')
+		document.getElementById('ad1').style.display = 'block'
+		var slides = document.getElementsByClassName('slides')
+		var listm = document.getElementById('fusMenu')
+		var modalCont2 = document.getElementById('c2')
 		var modalCont = document.getElementById('c1')
-		function modalOpen() {
-			modal.style.display = 'block'
-			window.onclick = function(event){
-				if(event.target == modal && event.target != modalCont)
-					modalClose()
-		}
-		}
-			function modalClose(){
-				modal.style.display = "none"
-			}
-				var listm = document.getElementById('fusMenu')
-		document.getElementById('l1').onmouseover = function(){
-			document.getElementById('l1').classList.add('show')
-			document.getElementById('dd1').classList.add('active')
-		}
-		document.getElementById('l1').onmouseleave = function(){
-			document.getElementById('l1').classList.remove('show')
-			document.getElementById('dd1').classList.remove('active')
-		}
-		function ofsMenu (){
+		var sub1 = false ,sub2 = false ,sub3 = false
+		var modal2 = document.getElementById('m2')
+		var modal = document.getElementById('m1')
+		var slideIndex = 0
+		var sM = false
+		function ofsMenu () {
 			listm.classList.add('show')
 			fs = true 
 			window.onclick = function(event){
@@ -462,32 +516,15 @@
 			}
 		}
 		}
-		function cfsMenu (){
-			listm.classList.remove('show')
+		document.getElementById('l1').onmouseover = function(){
+			document.getElementById('l1').classList.add('show')
+			document.getElementById('dd1').classList.add('active')
 		}
-		var sM = false
-		function sMo () {
-			var sideMenu = document.getElementById('sm')
-			var oB = document.getElementById('oBut')
-			if(sM == false){
-				sideMenu.style.maxWidth = "30vw"
-				sideMenu.classList.remove('sideMenuanc')
-				oB.classList.remove('sideButtanc')
-				sideMenu.classList.add('sideMenuano')
-				oB.classList.add('sideButtano')
-				sM = true
-			}
-			else {
-				sideMenu.style.maxWidth = "0vw"
-				sideMenu.classList.remove('sideMenuano')
-				oB.classList.remove('sideButtano')
-				sideMenu.classList.add('sideMenuanc')
-				oB.classList.add('sideButtanc')
-				sM = false
-			}
+		document.getElementById('l1').onmouseleave = function(){
+			document.getElementById('l1').classList.remove('show')
+			document.getElementById('dd1').classList.remove('active')
 		}
-		var sub1 = false ,sub2 = false ,sub3 = false
-		function toggles (a) {
+		function toggles (a)  {
 			var listNum = document.getElementById('nL'+a)
 			if(a == 1 && sub1 == false){
 				listNum.style.maxHeight = 100
@@ -529,5 +566,57 @@
 				sub3 = false
 			}
 		}
+		function modalOpen2 () {
+			modal2.style.display = 'block'
+			window.onclick = function(event){
+				if(event.target == modal2 && event.target != modalCont2)
+					modalClose2()
+			}
+		}
+		function modalClose2(){
+			modal2.style.display = "none"
+		}
+		function modalOpen () {
+			modal.style.display = 'block'
+			window.onclick = function(event){
+				if(event.target == modal && event.target != modalCont)
+					modalClose()
+		}
+		}
+		function modalClose() {
+				modal.style.display = "none"
+			}
+		function plusSlide () {
+			slideIndex+=1
+			for (i = 1 ; i <= slides.length ; i++)
+				document.getElementById('ad'+i).style.display = 'none'
+			if(slideIndex > slides.length) 
+				slideIndex = 1 ;
+			document.getElementById('ad'+slideIndex).style.display = 'block'
+		}
+		function cfsMenu () {
+			listm.classList.remove('show')
+		}
+		function sMo () {
+			var sideMenu = document.getElementById('sm')
+			var oB = document.getElementById('oBut')
+			if(sM == false){
+				sideMenu.style.maxWidth = "30vw"
+				sideMenu.classList.remove('sideMenuanc')
+				oB.classList.remove('sideButtanc')
+				sideMenu.classList.add('sideMenuano')
+				oB.classList.add('sideButtano')
+				sM = true
+			}
+			else {
+				sideMenu.style.maxWidth = "0vw"
+				sideMenu.classList.remove('sideMenuano')
+				oB.classList.remove('sideButtano')
+				sideMenu.classList.add('sideMenuanc')
+				oB.classList.add('sideButtanc')
+				sM = false
+			}
+		}
+		setInterval(plusSlide,3000)
 	</script>
 </html>
